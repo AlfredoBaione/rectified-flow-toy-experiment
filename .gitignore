@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# virtual environment
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# tensorboard logs
+runs/
+logs/
+
+# ignorare tutti i checkpoint tranne il best_model.pt
+checkpoints/*
+!checkpoints/best_step_17000_valloss_0.5399.pt
