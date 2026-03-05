@@ -11,4 +11,4 @@ This repository contains the code for **toy experiments with Rectified Flows**, 
   - Step-by-step trajectories with interactive slider  
   - Static snapshots of selected steps  
 
-## 📂 Repository Structure
+
