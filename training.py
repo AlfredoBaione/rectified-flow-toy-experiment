@@ -15,7 +15,7 @@ dist_A = "moons"
 dist_B = "circles"
 batch_size = 512
 num_steps = 20000
-lr = 2e-5   # <-- LR più stabile
+lr = 2e-5   # <-- LR more stable
 val_interval = 500
 
 # ======================
@@ -47,11 +47,11 @@ def compute_loss():
     # ===================================
 
     t = torch.rand(batch_size, device=device)
-    t = t * 0.8 + 0.1  # t ∈ [0.1, 0.9] -> meno varianza
+    t = t * 0.8 + 0.1  # t ∈ [0.1, 0.9] -> less variance
     xt = (1 - t).unsqueeze(1) * x0 + t.unsqueeze(1) * x1
-    # Calcolo target velocity
+    # Computing target velocity
     target_velocity = x1 - x0
-    # Normalizzazione stabile
+    # Stable normalization
     target_velocity = target_velocity / (target_velocity.std(dim=0, keepdim=True) + 1e-6)
 
     pred_velocity = model(xt, t)
@@ -71,7 +71,7 @@ for step in range(num_steps):
 
     optimizer.zero_grad()
     loss.backward()
-    torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)  # <-- stabilità
+    torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)  # 
     optimizer.step()
 
     writer.add_scalar("Loss/train", loss.item(), step)
